@@ -10,6 +10,7 @@ minusculas = random.choices(string.ascii_lowercase, k=6)
 numeros = [random.randint(1, 10) for _ in range(4)]
 password = ""
 salasana = ""
+
 for item in simbolos:
     password += item
 for mayuscula in mayusculas:
@@ -28,22 +29,19 @@ def uusi_salasana():
         salasana += passit
     valor["text"] = salasana
 
-
 def copy_string():
     global salasana
     string_to_copy = salasana
-
     window.clipboard_clear()
     window.clipboard_append(string_to_copy)
-
 
 window.rowconfigure(2, minsize=50, weight=1)
 window.columnconfigure(0, minsize=50, weight=1)
 
-roll = tk.Button(master=window, text="New Password", command=uusi_salasana)
+new_password = tk.Button(master=window, text="New Password", command=uusi_salasana)
 copiar = tk.Button(master=window, text="Copy", command=copy_string)
 
-roll.grid(row=0, column=0, sticky="nsew")
+new_password.grid(row=0, column=0, sticky="nsew")
 valor = tk.Label(master=window, text=" ")
 valor.grid(row=1, column=0, sticky="nsew")
 copiar.grid(row=2, column=0, sticky="nsew")
